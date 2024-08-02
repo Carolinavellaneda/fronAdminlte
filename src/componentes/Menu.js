@@ -14,16 +14,26 @@ const Menu = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={"/cliente"} className="nav-link">
+                    <Link to={"/clientes"} className="nav-link">
                         <i className="nav-icon fas fa-edit" />
                         <p>
                             Clientes
                         </p>
                     </Link>
                 </li>
+                <li className="nav-item">
+                    <Link to={"/mascotas"} className="nav-link">
+                        <i className="nav-icon fas fa-edit" />
+                        <p>
+                            Mascotas
+                        </p>
+                    </Link>
+                    
+                </li>
             </ul>
         </nav>
      );
 }
+
  
 export default Menu;

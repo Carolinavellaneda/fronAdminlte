@@ -11,7 +11,7 @@ const AgregarClientes = () => {
 const navigate = useNavigate();
 
 const [clientes, setClientes] = useState ({
-    nombres: "",
+    Nombre: "",
     apellidos:"",
     cedula:"",
     correo:"", 
@@ -21,9 +21,9 @@ const [clientes, setClientes] = useState ({
     
 })
 
-const {nombres, apellidos,cedula,correo,telefono,direccion} = clientes
+const {Nombre, apellidos,cedula,correo,telefono,direccion} = clientes
 useEffect(()=>{
-    document.getElementById("nombres").focus();
+    document.getElementById("Nombre").focus();
 },[])
 
 const onChange =(e) =>{
@@ -37,7 +37,7 @@ const onChange =(e) =>{
     const CrearClientes = async () => {
 
         const data = {
-            nombres: clientes.nombres,
+            Nombre: clientes.Nombre,
             apellidos: clientes.apellidos,
             cedula: clientes.cedula,
             correo: clientes.correo,
@@ -88,7 +88,7 @@ const onChange =(e) =>{
             });
 
             setClientes({
-                nombres: "",
+                Nombre: "",
                 apellidos:"",
                 cedula:"",
                 correo:"", 
@@ -143,13 +143,13 @@ const onChange =(e) =>{
 
                                 <div className="card-body">
                                     <div className="form-group">
-                                        <label htmlFor="nombres">Nombres</label>
+                                        <label htmlFor="Nombre">Nombre</label>
                                         <input type="text"
                                         className="form-control"
-                                        id='nombres'
-                                        name='nombres'
-                                        placeholder="Ingrese los nombres del Cliente"
-                                        value={nombres}
+                                        id='Nombre'
+                                        name='Nombre'
+                                        placeholder="Ingrese los Nombre del Cliente"
+                                        value={Nombre}
                                         onChange={onChange}
                                         required                                        
                                         />                                  

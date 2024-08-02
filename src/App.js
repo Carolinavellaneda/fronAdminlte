@@ -1,29 +1,40 @@
-import React, {Fragment} from "react";
-import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
+import { Fragment } from "react";
+import './App.css'
+import Home from "./Home";
+import { BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import Login from "./pagina/auth/Login";
 import Registro from "./pagina/auth/Reqistro";
-import Home from "./Home";
 import MostrarClientes from "./pagina/modulos/MostrarClientes";
 import AgregarClientes from "./pagina/modulos/AgregarClientes";
 import EditarClientes from "./pagina/modulos/EditarClientes";
+import MostrarMascotas from "./pagina/modulos/MostrarMascotas";
+import AgregarMascotas from "./pagina/modulos/AgregarMascota";
+import EditarMascotas from "./pagina/modulos/EditarMascotas";
+import RutasProtegitas from "./pagina/auth/RutasProtegitas";
 
 
+
+// importamos el componente
 
 function App() {
+
   return (
     <div className="App">
       <Fragment>
-        <Router>
-          <Routes>
-            <Route path="/" exact element ={<Login/>}></Route>
-            <Route path="/Registro" exact element ={<Registro/>}></Route>
-            <Route path="/home" exact element ={<Home/>}></Route>
-            <Route path="/clientes" exact element ={<MostrarClientes/>}></Route>
-            <Route path="/clientes/agregar" exact element ={<AgregarClientes/>}></Route>
-            <Route path="/clientes/editar/:id" exact element ={<EditarClientes/>}></Route>
-
+    <BrowserRouter>
+    <Routes>
+    <Route path='/' element= {<Navigate to="/login"/>}/>
+            <Route path="/login" exact element  ={ <Login/>}/>
+            <Route path="/Registro" exact element ={<Registro/>}/>
+            <Route path="/home" exact element ={<RutasProtegitas element={<Home/>}/>}/>
+            <Route path="/clientes" exact element = { <RutasProtegitas element={<MostrarClientes />}/>}></Route>
+            <Route path="/clientes/agregar" exact element ={ <RutasProtegitas element={<AgregarClientes />}/>}></Route>
+            <Route path="/clientes/editar/:id" exact element = {<RutasProtegitas element={<EditarClientes/>}/>}></Route>
+            <Route path="/mascotas" exact element = { <RutasProtegitas element={<MostrarMascotas/>}/>}></Route>
+            <Route path="/mascotas/agregar" exact element ={<RutasProtegitas element= {<AgregarMascotas/>}/>}></Route>
+            <Route path="/mascotas/editar/:id" exact element = {<RutasProtegitas element= {<EditarMascotas/>}/>}></Route>
           </Routes>
-        </Router>
+        </BrowserRouter>
       </Fragment>
     </div>
   );

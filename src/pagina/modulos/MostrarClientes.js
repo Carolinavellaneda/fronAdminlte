@@ -16,6 +16,7 @@ export const MostrarClientes = () => {
 
         const response = await APIInvoke.invokeGET('/api/clientes');
         setClientes(response.clientes);
+        console.log(response.clientes);
 
     }
 
@@ -83,7 +84,7 @@ export const MostrarClientes = () => {
                     titulo={"listado de Clientes"}
                     breadCrumb1={"Inicio"}
                     breadCrumb2={"Clientes"}
-                    ruta1={"/home"}
+                    ruta1={"/clientes/agregar"}
                 />
 
                 <seccion className="content">
@@ -97,7 +98,7 @@ export const MostrarClientes = () => {
                                     title="collapse">
                                     <i className="fas fa-item" />
                                 </button>
-
+        
 
                                 <button type="button" className="btn btn-tool" data-card-widget="remove"
                                     title="Remove">
@@ -130,7 +131,7 @@ export const MostrarClientes = () => {
                                             <td>{cliente.telefono}</td>
                                             <td>{cliente.direccion}</td>
                                             <td>
-                                                <Link to={`/clientes/editar${cliente.id}`} className='btn btn-sm btn btn-primary'> Editar </Link>
+                                                <Link to={`/clientes/editar/${cliente._id}`} className='btn btn-sm btn btn-primary'> Editar </Link>
                                                 <button onClick={(e) => eliminarClientes(e, cliente._id)} className='btn btn-sm btn btn-danger'>Eliminar</button>
                                             </td>
                                         </tr>
