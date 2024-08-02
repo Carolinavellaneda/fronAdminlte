@@ -56,7 +56,7 @@ const Login = () => {
             const response = await APIInvoke.invokePOST('/api/auth', data);
             const mensaje = response.msg;
 
-            if (mensaje === 'El usuario no existe ' || mensaje === 'contrase;a incorrecta'){ 
+            if (mensaje === 'el usuario no esta registrado' || mensaje === 'la contrasena es incorrecta'){ 
             const msg = "no fue posible iniciar seccion revise sus datos de inicio";
             swal ({
                 title: 'Error',
